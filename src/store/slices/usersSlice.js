@@ -16,6 +16,7 @@ const usersSlice = createSlice({
       state.isLoading = false;
       state.data = action.payload;
     });
+    // When handling errors, data is not on action.payload!!!
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.error.message;
