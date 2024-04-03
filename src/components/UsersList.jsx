@@ -1,5 +1,18 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from '../store/thunks/fetchUsers';
+
 const UsersList = () => {
-  return <p>UsersList Works!</p>;
+  const users = useSelector(({ users: { data } }) => data);
+  const dispatch = useDispatch();
+
+  console.log(users);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  return <div>{users ? users.map(({ id, name }) => <p key={id}>{name}</p>) : 'Loading'}</div>;
 };
 
 export default UsersList;
