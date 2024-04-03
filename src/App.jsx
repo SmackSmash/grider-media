@@ -1,4 +1,4 @@
-import UsersList from './store/components/UsersList';
+import UsersList from './components/UsersList';
 
 const App = () => {
   return (
