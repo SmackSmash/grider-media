@@ -8,7 +8,6 @@ const usersSlice = createSlice({
     data: [],
     error: null
   },
-  reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
       state.data = action.payload;
