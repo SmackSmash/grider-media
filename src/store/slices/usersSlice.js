@@ -19,7 +19,7 @@ const usersSlice = createSlice({
     // When handling errors, data is not on action.payload!!!
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.isLoading = false;
-      state.error = action.error.message;
+      state.error = action.error.message; // Error data on action.error!
     });
   }
 });
