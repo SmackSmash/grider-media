@@ -4,11 +4,12 @@ import users from './slices/usersSlice';
 
 import albums from './slices/albumsSlice';
 
-const store = configureStore({
+import photos from './slices/photosSlice';
+
+export default configureStore({
   reducer: {
     users,
-    albums
+    albums,
+    photos
   }
 });
-
-export default store;
