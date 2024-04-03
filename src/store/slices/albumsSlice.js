@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const albumsSlice = createSlice({
   name: 'albums',
   initialState: {
-    isLoading: true,
+    isLoading: false,
     data: [],
     error: null
   }
