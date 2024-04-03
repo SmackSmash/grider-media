@@ -1,5 +1,9 @@
 {
-  "users": [{ "id": 1, "name": "Sally Fields" }],
+  "users": [
+    { "id": 1, "name": "Sally Fields" },
+    { "id": 2, "name": "Geoff Sharp" },
+    { "id": 3, "name": "Charles Wimbledon" }
+  ],
   "albums": [],
   "photos": []
 }
