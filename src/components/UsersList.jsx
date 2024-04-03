@@ -6,8 +6,6 @@ const UsersList = () => {
   const users = useSelector(({ users: { data } }) => data);
   const dispatch = useDispatch();
 
-  console.log(users);
-
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
