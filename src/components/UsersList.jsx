@@ -16,7 +16,7 @@ const UsersList = () => {
 
   // Good old fashioned if statements work best for multiple return values
   if (isLoading) {
-    return <Skeleton times={4} className='h-10 w-full' />;
+    return <Skeleton times={4} className='h-10 w-full m-2' />;
   }
 
   if (error) {
@@ -27,9 +27,9 @@ const UsersList = () => {
     <div>
       {users &&
         users.map(({ id, name }) => (
-          <p className='m-2 border rounded' key={id}>
+          <div className='m-2 border rounded' key={id}>
             <div className='flex p-2 justify-between items-center cursor-pointer'>{name}</div>
-          </p>
+          </div>
         ))}
     </div>
   );
