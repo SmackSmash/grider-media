@@ -16,7 +16,7 @@ const UsersList = () => {
 
   // Good old fashioned if statements work best for multiple return values
   if (isLoading) {
-    return <Skeleton />;
+    return <Skeleton times={5} />;
   }
 
   if (error) {
