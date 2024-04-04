@@ -4,6 +4,7 @@ import { fetchUsers } from '../store';
 
 const UsersList = () => {
   const users = useSelector(({ users: { data } }) => data);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
