@@ -30,7 +30,7 @@ const UsersList = () => {
 
   return (
     <div>
-      <div className='flex flex-row justify-between items-center m-3'>
+      <div className='flex flex-row justify-between items-center py-3 px-2'>
         <h1 className='text-2xl'>Media Matters</h1>
         <Button primary rounded onClick={handleClick}>
           + Add User
