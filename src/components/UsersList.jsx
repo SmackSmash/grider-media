@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, addUser } from '../store';
 import Skeleton from './Skeleton';
+import Button from './Button';
 
 const UsersList = () => {
   const users = useSelector(({ users: { data } }) => data);
@@ -29,10 +30,12 @@ const UsersList = () => {
 
   return (
     <div>
-      <h1>Media Matters</h1>
-      <button className='bg-slate-500 py-2 px-4 rounded cursor-pointer hover:bg-slate-400' onClick={handleClick}>
-        Add User
-      </button>
+      <div className='flex flex-row justify-between items-center m-3'>
+        <h1 className='text-2xl'>Media Matters</h1>
+        <Button primary rounded onClick={handleClick}>
+          + Add User
+        </Button>
+      </div>
       <div>
         {users &&
           users.map(({ id, name }) => (
