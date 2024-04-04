@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../store';
+import Skeleton from './Skeleton';
 
 const UsersList = () => {
   const users = useSelector(({ users: { data } }) => data);
@@ -15,7 +16,7 @@ const UsersList = () => {
 
   // Good old fashioned if statements work best for multiple return values
   if (isLoading) {
-    return <div>Loading</div>;
+    return <Skeleton />;
   }
 
   if (error) {
