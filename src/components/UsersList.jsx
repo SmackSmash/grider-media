@@ -16,14 +16,23 @@ const UsersList = () => {
 
   // Good old fashioned if statements work best for multiple return values
   if (isLoading) {
-    return <Skeleton times={6} className='h-10 w-full' />;
+    return <Skeleton times={4} className='h-10 w-full' />;
   }
 
   if (error) {
     return <div>Something went wrong</div>;
   }
 
-  return <div>{users && users.map(({ id, name }) => <p key={id}>{name}</p>)}</div>;
+  return (
+    <div>
+      {users &&
+        users.map(({ id, name }) => (
+          <p className='m-2 border rounded' key={id}>
+            <div className='flex p-2 justify-between items-center cursor-pointer'>{name}</div>
+          </p>
+        ))}
+    </div>
+  );
 };
 
 export default UsersList;
