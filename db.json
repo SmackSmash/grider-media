@@ -2,8 +2,9 @@
   "users": [
     { "id": 1, "name": "Sally Fields" },
     { "id": 2, "name": "Geoff Sharp" },
-    { "id": 3, "name": "Charles Wimbledon" }
+    { "id": 3, "name": "Charles Wimbledon" },
+    { "id": 4, "name": "Angela Raylinco" }
   ],
-  "albums": [],
+  "albums": [{ "id": 1, "userId": 1, "title": "The big nasty" }],
   "photos": []
 }
