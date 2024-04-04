@@ -1,8 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import users from './slices/usersSlice';
-import { fetchUsers } from './thunks/fetchUsers';
-export { fetchUsers };
+export * from './thunks/fetchUsers';
 
 import albums from './slices/albumsSlice';
 
