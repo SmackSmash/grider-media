@@ -1,10 +1,44 @@
 {
   "users": [
-    { "id": 1, "name": "Sally Fields" },
-    { "id": 2, "name": "Geoff Sharp" },
-    { "id": 3, "name": "Charles Wimbledon" },
-    { "id": 4, "name": "Angela Raylinco" }
+    {
+      "id": "1",
+      "name": "Sally Fields"
+    },
+    {
+      "id": "2",
+      "name": "Geoff Sharp"
+    },
+    {
+      "id": "3",
+      "name": "Charles Wimbledon"
+    },
+    {
+      "id": "4",
+      "name": "Angela Raylinco"
+    },
+    {
+      "id": "afe5",
+      "name": "Rudy Pacocha"
+    },
+    {
+      "id": "ebe9",
+      "name": "Casey Koss"
+    },
+    {
+      "id": "8c2e",
+      "name": "Wilma Schoen"
+    },
+    {
+      "id": "0c0a",
+      "name": "Terri Towne"
+    }
   ],
-  "albums": [{ "id": 1, "userId": 1, "title": "The big nasty" }],
+  "albums": [
+    {
+      "id": "1",
+      "userId": 1,
+      "title": "The big nasty"
+    }
+  ],
   "photos": []
 }
