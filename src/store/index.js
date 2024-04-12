@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import users from './slices/usersSlice';
 export * from './thunks/fetchUsers';
 export * from './thunks/addUser';
+export * from './thunks/deleteUser';
 
 import albums from './slices/albumsSlice';
 

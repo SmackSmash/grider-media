@@ -1,17 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, addUser } from '../store';
 import Skeleton from './Skeleton';
 import Button from './Button';
 
 const UsersList = () => {
+  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
+  const [loadingUsersError, setLoadingUsersError] = useState(null);
   const users = useSelector(({ users: { data } }) => data);
-  const isLoading = useSelector(({ users: { isLoading } }) => isLoading);
-  const error = useSelector(({ users: { error } }) => error);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setIsLoadingUsers(true);
     dispatch(fetchUsers());
   }, [dispatch]);
 
@@ -20,11 +21,11 @@ const UsersList = () => {
   };
 
   // Good old fashioned if statements work best for multiple return values
-  if (isLoading) {
+  if (isLoadingUsers) {
     return <Skeleton times={4} className='h-10 w-full m-2' />;
   }
 
-  if (error) {
+  if (loadingUsersError) {
     return <div>Something went wrong</div>;
   }
 
@@ -40,7 +41,9 @@ const UsersList = () => {
         {users &&
           users.map(({ id, name }) => (
             <div className='m-2 border rounded' key={id}>
-              <div className='flex p-2 justify-between items-center cursor-pointer'>{name}</div>
+              <div className='flex p-2 justify-between items-center cursor-pointer'>
+                {name}
+              </div>
             </div>
           ))}
       </div>
