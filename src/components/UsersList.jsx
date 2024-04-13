@@ -13,14 +13,15 @@ const UsersList = () => {
 
   useEffect(() => {
     setIsLoadingUsers(true);
-    dispatch(fetchUsers())
-      .unwrap()
-      .catch(error => {
+    (async () => {
+      try {
+        await dispatch(fetchUsers()).unwrap();
+      } catch (error) {
         setLoadingUsersError(error);
-      })
-      .finally(() => {
+      } finally {
         setIsLoadingUsers(false);
-      });
+      }
+    })();
   }, [dispatch]);
 
   const handleClick = () => {
