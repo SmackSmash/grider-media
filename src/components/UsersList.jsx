@@ -18,9 +18,10 @@ const UsersList = () => {
       .then(() => {
         setIsLoadingUsers(false);
       })
-      .catch(() => {
+      .catch(error => {
+        console.log(error);
         setIsLoadingUsers(false);
-        setLoadingUsersError(true);
+        setLoadingUsersError(error);
       });
   }, [dispatch]);
 
@@ -34,7 +35,7 @@ const UsersList = () => {
   }
 
   if (loadingUsersError) {
-    return <div>Something went wrong</div>;
+    return <div>{loadingUsersError.message}</div>;
   }
 
   return (
