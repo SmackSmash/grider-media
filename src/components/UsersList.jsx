@@ -15,13 +15,12 @@ const UsersList = () => {
     setIsLoadingUsers(true);
     dispatch(fetchUsers())
       .unwrap()
-      .then(() => {
-        setIsLoadingUsers(false);
-      })
       .catch(error => {
         console.log(error);
-        setIsLoadingUsers(false);
         setLoadingUsersError(error);
+      })
+      .finally(() => {
+        setIsLoadingUsers(false);
       });
   }, [dispatch]);
 
