@@ -13,7 +13,15 @@ const UsersList = () => {
 
   useEffect(() => {
     setIsLoadingUsers(true);
-    dispatch(fetchUsers()).then(() => setIsLoadingUsers(false));
+    dispatch(fetchUsers()).then(action => {
+      console.log(action);
+      if (action.error) {
+        setIsLoadingUsers(false);
+        setLoadingUsersError(true);
+      } else {
+        setIsLoadingUsers(false);
+      }
+    });
   }, [dispatch]);
 
   const handleClick = () => {
