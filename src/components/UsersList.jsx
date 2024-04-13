@@ -16,7 +16,6 @@ const UsersList = () => {
     dispatch(fetchUsers())
       .unwrap()
       .catch(error => {
-        console.log(error);
         setLoadingUsersError(error);
       })
       .finally(() => {
