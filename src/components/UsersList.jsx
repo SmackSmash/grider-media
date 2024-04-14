@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, addUser } from '../store';
+import useThunk from '../store/hooks/useThunk';
 import Skeleton from './Skeleton';
 import Button from './Button';
 
 const UsersList = () => {
-  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
-  const [loadingUsersError, setLoadingUsersError] = useState(null);
+  const [doFetchUsers, isLoadingUsers, loadingUsersError] =
+    useThunk(fetchUsers);
   const [isCreatingUser, setIsCreatingUser] = useState(false);
   const [creatingUserError, setCreatingUserError] = useState(null);
   const users = useSelector(({ users: { data } }) => data);
@@ -14,17 +15,8 @@ const UsersList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setIsLoadingUsers(true);
-    (async () => {
-      try {
-        await dispatch(fetchUsers()).unwrap();
-      } catch (error) {
-        setLoadingUsersError(error);
-      } finally {
-        setIsLoadingUsers(false);
-      }
-    })();
-  }, [dispatch]);
+    doFetchUsers();
+  }, []);
 
   const handleClick = async () => {
     setIsCreatingUser(true);
@@ -50,7 +42,7 @@ const UsersList = () => {
     <div>
       <div className='flex flex-row justify-between items-center py-3 px-2'>
         <h1 className='text-2xl'>Media Matters</h1>
-        {creatingUserError && creatingUserError.message}
+        {creatingUserError && error.message}
         <Button primary rounded onClick={handleClick}>
           {isCreatingUser ? 'Spinner' : '+ Add User'}
         </Button>

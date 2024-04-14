@@ -9,6 +9,8 @@ import albums from './slices/albumsSlice';
 
 import photos from './slices/photosSlice';
 
+export * from './hooks/useThunk';
+
 export default configureStore({
   reducer: {
     users,
