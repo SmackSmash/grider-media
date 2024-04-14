@@ -16,7 +16,7 @@ const UsersList = () => {
 
   useEffect(() => {
     doFetchUsers();
-  }, []);
+  }, [doFetchUsers]);
 
   const handleClick = async () => {
     setIsCreatingUser(true);
