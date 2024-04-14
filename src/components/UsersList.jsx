@@ -51,7 +51,7 @@ const UsersList = () => {
       <div className='flex flex-row justify-between items-center py-3 px-2'>
         <h1 className='text-2xl'>Media Matters</h1>
         <Button primary rounded onClick={handleClick}>
-          + Add User
+          {isCreatingUser ? 'Spinner' : '+ Add User'}
         </Button>
       </div>
       <div>
