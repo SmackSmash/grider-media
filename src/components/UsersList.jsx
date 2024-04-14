@@ -7,6 +7,8 @@ import Button from './Button';
 const UsersList = () => {
   const [isLoadingUsers, setIsLoadingUsers] = useState(false);
   const [loadingUsersError, setLoadingUsersError] = useState(null);
+  const [isCreatingUser, setIsCreatingUser] = useState(false);
+  const [creatingUserError, setCreatingUserError] = useState(null);
   const users = useSelector(({ users: { data } }) => data);
 
   const dispatch = useDispatch();
@@ -24,8 +26,15 @@ const UsersList = () => {
     })();
   }, [dispatch]);
 
-  const handleClick = () => {
-    dispatch(addUser());
+  const handleClick = async () => {
+    setIsCreatingUser(true);
+    try {
+      await dispatch(addUser()).unwrap();
+    } catch (error) {
+      setCreatingUserError(error);
+    } finally {
+      setIsCreatingUser(false);
+    }
   };
 
   // Good old fashioned if statements work best for multiple return values
